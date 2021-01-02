@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: '14'
       - run: npm i
-      - run: npm i hexo-cli
+      - run: npm i hexo-cli -g
       - run: hexo g
       - name: Get commit hash
         id: get-hash
