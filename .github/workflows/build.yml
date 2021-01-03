@@ -41,12 +41,12 @@ jobs:
           name: blog-build-${{steps.get-hash.outputs.HASH}}
           path: public/
       - name: Push publice folder to git
-        uses: liziwl/git-push-action@master
-        with:
-          git_token_holder: 'CBW2007'
-          git_token: '${{ secrets.GITHUB_TOKEN }}'
-          commit_user: 'CBW2007'
-          commit_email: '${{secrets.GIT_MAIL}}'
-          push_dir: 'public'
-          repository_url: 'github.com/CBW2007/blog.git'
-          branch: gh-pages # default master
+        run: |
+          cd public
+          git init
+          git remote add origin https://CBW2007:${{ secrets.GITHUB_TOKEN }}@github.com/CBW2007/blog.git
+          git config --global user.email "${{ secrets.GIT_MAIL }}"
+          git config --global user.name "CBW2007"
+          git add .
+          git commit -m "deploy ${{ GITHUB_SHA }} by github actions"
+          git push origin gh-pages -f
