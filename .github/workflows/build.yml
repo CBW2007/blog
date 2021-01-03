@@ -44,7 +44,7 @@ jobs:
         uses: liziwl/git-push-action@master
         with:
           git_token_holder: 'CBW2007'
-          git_token: '${{ secrets.GIT_TOKEN }}'
+          git_token: '${{ secrets.GITHUB_TOKEN }}'
           commit_user: 'CBW2007'
           commit_email: '${{secrets.GIT_MAIL}}'
           push_dir: 'public'
