@@ -48,5 +48,5 @@ jobs:
           git config --global user.email "${{ secrets.GIT_MAIL }}"
           git config --global user.name "CBW2007"
           git add .
-          git commit -m "deploy ${{ GITHUB_SHA }} by github actions"
+          git commit -m "deploy ${{ github.sha }} by github actions"
           git push origin gh-pages -f
