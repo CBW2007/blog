@@ -49,4 +49,4 @@ jobs:
           git config --global user.name "CBW2007"
           git add .
           git commit -m "deploy ${{ github.sha }} by github actions"
-          git push origin gh-pages -f
+          git push origin master:gh-pages -f
