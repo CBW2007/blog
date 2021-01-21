@@ -50,3 +50,21 @@ jobs:
           git add .
           git commit -m "deploy ${{ github.sha }} by github actions"
           git push origin master:gh-pages -f
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Surge
+        run: npm i surge -g
+      - name: add domain
+        run: echo https://www.cbw2007.tk >> CNAME
+      - name: Publish to Surge
+        run: surge --token ${{ secrets.SURGE_TOKEN }}
