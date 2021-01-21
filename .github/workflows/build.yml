@@ -67,4 +67,4 @@ jobs:
       - name: add domain
         run: echo https://www.cbw2007.tk >> CNAME
       - name: Publish to Surge
-        run: surge --token ${{ secrets.SURGE_TOKEN }}
+        run: surge . --token ${{ secrets.SURGE_TOKEN }}
