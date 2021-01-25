@@ -154,9 +154,9 @@ search:
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
 comment:
-    type: disqus
+    type: isso
     # Disqus shortname
-    shortname: ''
+    url: open.saintic.com/isso/cbw2007_blog/
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 donates:
